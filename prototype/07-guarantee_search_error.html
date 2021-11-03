@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>台灣三洋-服務管理系統</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- jQuery-ui -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.css">
+    <!-- Bootstrap_4.5.2 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- material_icon -->
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" href="css/material-icons-ie.css">
+    <!-- malihu-custom-scrollbar-plugin_3.1.5 -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <!-- datatable(bootstrap4/DataTables) -->
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <!-- datatable_rowReorder_1.2.7 -->
+    <link rel="stylesheet" href="css/rowReorder.dataTables.min.css">
+    <!-- datatable_responsive_2.2.6 -->
+    <link rel="stylesheet" href="css/responsive.dataTables.min.css">
+    <!-- bootstrap-select-->
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <!-- datepicker_5.1.0 -->
+    <link rel="stylesheet" href="css/jquery.datepick.css">
+    <!-- lity_2.4.1 -->
+    <link rel="stylesheet" href="css/lity.css">
+    <!-- 全域 -->
+    <link rel="stylesheet" href="css/global.css">
+    <!-- 框架 -->
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- 頁面 -->
+    <link rel="stylesheet" href="css/page.css">
+    <!-- pg使用 -->
+    <link rel="stylesheet" href="css/pg.css">
+    <!-- menu_active -->
+    <style>
+        .guaranteeContainer .guaranteeItem li:nth-child(2) a {
+            color: #4BE5FF;
+        }
+    </style>
+</head>
+
+<body id="canvas">
+    <div class="frameContainer preventTransitions guaranteeContainer guarantee_search_error">
+        <div class="frameInner">
+            <!-- left_menu -->
+            <nav class="frameBlock leftBlock jsMenuWidth" id="left_menu" menu-html='include/menu.html'></nav>
+            <!-- right_content -->
+            <div class="frameBlock rightBlock jsContMargin" id="right_content">
+                <!-- header -->
+                <header class="contentPart header">
+                    <div class="headerInner">
+                        <div class="headerItem header_menuBtn">
+                            <button onclick='leftMenuToggle()' id="menuBtn"><span></span><span></span><span></span></button>
+                        </div>
+                        <div class="headerItem header_taskBtn">
+                            <ul>
+                                <li><a href="03-index.html"><span class="material-icons">home</span></a></li>
+                                <li>
+                                    <div class="header_searchBtn"><a href="javascript:;"><span class="material-icons">search</span></a></div>
+                                    <div class="header_searchInput">
+                                        <div class="header_searchInput_field">
+                                            <form action="">
+                                                <div class="header_searchInput_fieldItem header_searchInput_text">
+                                                    <input type="text" placeholder="請輸入...">
+                                                </div>
+                                                <div class="header_searchInput_fieldItem header_searchInput_btn">
+                                                    <button><span class="material-icons">search</span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="header_searchInput_record">
+                                            <ul>
+                                                <li class="header_searchInput_title">近期搜尋紀錄</li>
+                                                <li><a href="#">ABC1234567890</a></li>
+                                                <li><a href="#">XYZ0987654321</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="04-material_order_step1.html"><span class="material-icons">shopping_cart</span><span class="cartNum">3</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="headerItem header_comInfo">
+                            <div class="comName">
+                                <ul>
+                                    <li class="comLink">台值實業</li>
+                                    <li><a href="javascript:;" class="moreLink"><span class="material-icons">more_vert</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="comDetail">
+                                <div class="comDetailItem comDetail_name"><a href="#">台值實業有限公司</a></div>
+                                <div class="comDetailItem comDetail_account" data-desc="帳號">ABC1234</div>
+                                <div class="comDetailItem comDetail_uniformNum" data-desc="統一編號">97315527</div>
+                                <div class="logOutLink">
+                                    <a href="02-log_in.html">登&nbsp;&nbsp;出</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- content -->
+                <div class="contentPart content">
+                    <div class="content_components content_pageBack">
+                        <a href="#">返回保證書查詢</a>
+                    </div>
+                    <div class="content_components content_infoText">
+                        <div class="infoText_highlight infoText_error">查無資料!</div>
+                        <div class="infoText_content">
+                            <p>台灣三洋客服專線：(02)2521-0251 #6738
+                                <br>服務時間：週一至週五 09:00~17:00
+                                <br>如果遇星期例假日或國定假日時，則須待休假日之後方可提供服務，謹此致歉。</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <footer class="contentPart footer">
+                    <div class="footerInner">
+                        <div class="footerItem footer_contact">
+                            <ul>
+                                <li>聯絡電話：<a href="tel:0225210251" target="_blank">(02)2521-0251</a> #6738</li>
+                                <li>E-Mail：<a href="mailto:san6132@sanyo.com.tw" target="_blank">san6132@sanyo.com.tw</a></li>
+                            </ul>
+                        </div>
+                        <div class="footerItem footer_copyright">
+                            <p>版權聲明 Copyright © 2014 Taiwan Sanyo</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- right -->
+        </div>
+    </div>
+</body>
+<!-- jQuery_3.5.1  -->
+<script src="js/jquery-3.5.1.min.js"></script>
+<!-- jQuery-ui_1.12.1 -->
+<script src="js/jquery-ui.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap_4.5.2 -->
+<script src="js/bootstrap.min.js"></script>
+<!-- malihu-custom-scrollbar-plugin_3.1.5 -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- bootstrap-select -->
+<script src="js/bootstrap-select.js"></script>
+<!-- datatable(bootstrap4/DataTables) -->
+<script src="js/jquery.dataTables.js"></script>
+<!-- datatable_rowReorder_1.2.7 -->
+<script src="js/dataTables.rowReorder.min.js"></script>
+<!-- datatable_responsive_2.2.6 -->
+<script src="js/dataTables.responsive.min.js"></script>
+<!-- lity_2.4.1 -->
+<script src="js/lity.js"></script>
+<!-- js -->
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+<!-- include_menu -->
+<script>
+includeMenu();
+</script>
+
+</html>

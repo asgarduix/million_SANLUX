@@ -1,0 +1,22 @@
+{
+  "emptyTable": "無資料...",
+  "processing": "處理中...",
+  "loadingRecords": "載入中...",
+  "lengthMenu": "顯示 _MENU_ 筆資料",
+  "zeroRecords": "沒有符合的結果",
+  "info": "，共 _TOTAL_ 項",
+  "infoEmpty": "顯示第 0 至 0 項結果，共 0 項",
+  "infoFiltered": "(從 _MAX_ 項結果中過濾)",
+  "infoPostFix": "",
+  "search": "<span class='material-icons'>search</span> 搜尋",
+  "paginate": {
+    "first": "<<",
+    "previous": "<",
+    "next": ">",
+    "last": ">>"
+  },
+  "aria": {
+    "sortAscending": ": 升冪排列",
+    "sortDescending": ": 降冪排列"
+  }
+}

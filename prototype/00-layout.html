@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>台灣三洋-服務管理系統</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- jQuery-ui -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/jquery-ui.theme.css">
+    <!-- Bootstrap_4.5.2 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- material_icon -->
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" href="css/material-icons-ie.css">
+    <!-- malihu-custom-scrollbar-plugin_3.1.5 -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <!-- datatable(bootstrap4/DataTables) -->
+    <link rel="stylesheet" href="css/jquery.dataTables.css">
+    <!-- datatable_rowReorder_1.2.7 -->
+    <link rel="stylesheet" href="css/rowReorder.dataTables.min.css">
+    <!-- datatable_responsive_2.2.6 -->
+    <link rel="stylesheet" href="css/responsive.dataTables.min.css">
+    <!-- bootstrap-select-->
+    <link rel="stylesheet" href="css/bootstrap-select.css">
+    <!-- datepicker_5.1.0 -->
+    <link rel="stylesheet" href="css/jquery.datepick.css">
+    <!-- lity_2.4.1 -->
+    <link rel="stylesheet" href="css/lity.css">
+    <!-- 全域 -->
+    <link rel="stylesheet" href="css/global.css">
+    <!-- 框架 -->
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- 頁面 -->
+    <link rel="stylesheet" href="css/page.css">
+    <!-- pg使用 -->
+    <link rel="stylesheet" href="css/pg.css">
+</head>
+
+<body id="canvas">
+    <div class="frameContainer preventTransitions">
+        <div class="frameInner">
+            <!-- left_menu -->
+            <nav class="frameBlock leftBlock jsMenuWidth" id="left_menu" menu-html='include/menu.html'></nav>
+            <!-- right_content -->
+            <div class="frameBlock rightBlock jsContMargin" id="right_content">
+                <!-- header -->
+                <header class="contentPart header">
+                    <div class="headerInner">
+                        <div class="headerItem header_menuBtn">
+                            <button onclick='leftMenuToggle()' id="menuBtn"><span></span><span></span><span></span></button>
+                        </div>
+                        <div class="headerItem header_taskBtn">
+                            <ul>
+                                <li><a href="03-index.html"><span class="material-icons">home</span></a></li>
+                                <li>
+                                    <div class="header_searchBtn"><a href="javascript:;"><span class="material-icons">search</span></a></div>
+                                    <div class="header_searchInput">
+                                        <div class="header_searchInput_field">
+                                            <form action="">
+                                                <div class="header_searchInput_fieldItem header_searchInput_text">
+                                                    <input type="text" placeholder="請輸入...">
+                                                </div>
+                                                <div class="header_searchInput_fieldItem header_searchInput_btn">
+                                                    <button><span class="material-icons">search</span></button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="header_searchInput_record">
+                                            <ul>
+                                                <li class="header_searchInput_title">近期搜尋紀錄</li>
+                                                <li><a href="#">ABC1234567890</a></li>
+                                                <li><a href="#">XYZ0987654321</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><a href="04-material_order_step1.html"><span class="material-icons">shopping_cart</span><span class="cartNum">3</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="headerItem header_comInfo">
+                            <div class="comName">
+                                <ul>
+                                    <li class="comLink">台值實業</li>
+                                    <li><a href="javascript:;" class="moreLink"><span class="material-icons">more_vert</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="comDetail">
+                                <div class="comDetailItem comDetail_name"><a href="#">台值實業有限公司</a></div>
+                                <div class="comDetailItem comDetail_account" data-desc="帳號">ABC1234</div>
+                                <div class="comDetailItem comDetail_uniformNum" data-desc="統一編號">97315527</div>
+                                <div class="logOutLink">
+                                    <a href="02-log_in.html">登&nbsp;&nbsp;出</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- content -->
+                <div class="contentPart content">
+                    <hr>
+                    <!-- MainTitle -->
+                    <div class="content_components content_MainTitle">
+                        <h1>材料查詢</h1>
+                    </div>
+                    <hr>
+                    <!-- date -->
+                    <div class="content_components content_date">
+                        <span class="date date_y">2020</span>
+                        <span class="date date_m">12</span>
+                        <span class="date date_d">11</span>
+                    </div>
+                    <hr>
+                    <!-- popup -->
+                    <div class="content_components content_popupLink">
+                        <a href="#popup" data-lity>彈跳視窗</a>
+                    </div>
+                    <hr>
+                    <!-- numCounter -->
+                    <div class="content_components content_numCounter">
+                        <div class="numCounterInner">
+                            <div class="numCounter"><a href="#"><span class="material-icons">remove_circle</span></a></div>
+                            <div class="numCounter">
+                                <input type="num" value="10">
+                            </div>
+                            <div class="numCounter"><a href="#"><span class="material-icons">add_circle</span></a></div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- filter -->
+                    <div class="content_components content_filter">
+                        <div class="filterInner">
+                            <div class="filter filter_title"><span class="material-icons">filter_alt</span> 篩選</div>
+                            <div class="filter filter_select">
+                                <select name="" id="">
+                                    <option>日期：由近到遠</option>
+                                    <option>日期：由遠到近</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- search -->
+                    <div class="content_components content_search">
+                        <div class="searchInner">
+                            <form action="">
+                                <div class="search search_select">
+                                    <select>
+                                        <option value="" selected>訂單編號</option>
+                                        <option value="">訂單成立日期</option>
+                                    </select>
+                                </div>
+                                <div class="search search_input">
+                                    <input type="text" placeholder="請輸入訂單編號">
+                                </div>
+                                <div class="search search_btn">
+                                    <button>搜尋</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="content_components content_search">
+                        <div class="searchInner">
+                            <form action="">
+                                <div class="search search_select">
+                                    <select>
+                                        <option value="">訂單編號</option>
+                                        <option value="" selected>訂單成立日期</option>
+                                    </select>
+                                </div>
+                                <div class="search search_input search_datepicker">
+                                    <div class="datepickerInner">
+                                        <div class="datepicker_field">
+                                            <input type="text" placeholder="查詢日期" value="" class="searchDatepicker searchInput">
+                                        </div>
+                                        <div class="datepicker_field datepicker_arrow"><span class="material-icons">double_arrow</span></div>
+                                        <div class="datepicker_field">
+                                            <input type="text" placeholder="查詢日期" value="" class="searchDatepicker searchInput">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search search_btn">
+                                    <button>搜尋</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- pagination -->
+                    <div class="content_components content_pagonation">
+                        <ul>
+                            <li><a href="#"><span class="material-icons">first_page</span></a></li>
+                            <li><a href="#"><span class="material-icons">chevron_left</span></a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#" class="paginationActive">4</a></li>
+                            <li>...</li>
+                            <li><a href="#"><span class="material-icons">chevron_right</span></a></li>
+                            <li><a href="#">10</a></li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <!-- list -->
+                    <div class="content_components content_list">
+                        <div class="listItem listHeader">
+                            <div class="listHeaderInner">
+                                <div class="listHeaderItem listHeader_date">
+                                    <div class="content_components content_date">
+                                        <span class="date date_y">2020</span>
+                                        <span class="date date_m">12</span>
+                                        <span class="date date_d">11</span>
+                                    </div>
+                                </div>
+                                <div class="listHeaderItem listHeader_sum">共<span class="sumNum">4</span>項</div>
+                            </div>
+                        </div>
+                        <div class="listItem listContent">
+                            <div class="listContentItem">
+                                <div class="listContent_mainTitle">冷氣機</div>
+                                <div class="listTable">
+                                    <div class="listTable_thead">
+                                        <div class="listTable_theadInner">
+                                            <div class="listTable_th listTable_numSort"></div>
+                                            <div class="listTable_th listTable_text">品名</div>
+                                            <div class="listTable_th listTable_text">零件編號</div>
+                                            <div class="listTable_th listTable_text">數量</div>
+                                            <div class="listTable_th listTable_text">單項總額</div>
+                                        </div>
+                                    </div>
+                                    <div class="listTable_tr" data-num="1">
+                                        <div class="listTable_trInner">
+                                            <div class="listTable_td listTable_numSort">1</div>
+                                            <div class="listTable_td listTable_text" data-desc="品名">
+                                                <div>螺絲</div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                <div><a href="#">SAC1234</a></div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="數量">
+                                                <div>10</div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                <div><span class="integer">100</span><span class="decimalPoint">00</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="listTable_tr" data-num="2">
+                                        <div class="listTable_trInner">
+                                            <div class="listTable_td listTable_numSort">2</div>
+                                            <div class="listTable_td listTable_text" data-desc="品名">
+                                                <div>銅管</div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                <div><a href="#">ABC56789</a></div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="數量">
+                                                <div>30</div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                <div><span class="integer">300</span><span class="decimalPoint">00</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listItem listFooter">
+                            <div class="listFooterInner">
+                                <div class="listFooterItem listFooter_title">訂單總額</div>
+                                <div class="listFooterItem listFooter_sum">NT $<span class="sumPrice"><span class="integer">1,040</span><span class="decimalPoint">00</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="content_components content_list">
+                        <div class="listItem listHeader">
+                            <div class="listHeaderInner">
+                                <div class="listHeaderItem listHeader_date">
+                                    <div class="content_components content_date">
+                                        <span class="date date_y">2020</span>
+                                        <span class="date date_m">12</span>
+                                        <span class="date date_d">11</span>
+                                    </div>
+                                </div>
+                                <div class="listHeaderItem listHeader_sum">共<span class="sumNum">4</span>項</div>
+                            </div>
+                        </div>
+                        <div class="listItem listContent">
+                            <div class="listContentItem">
+                                <div class="listContent_mainTitle">冷氣機</div>
+                                <div class="listTable">
+                                    <div class="listTable_thead">
+                                        <div class="listTable_theadInner">
+                                            <div class="listTable_th listTable_numSort"></div>
+                                            <div class="listTable_th listTable_text">品名</div>
+                                            <div class="listTable_th listTable_text">零件編號</div>
+                                            <div class="listTable_th listTable_text">數量</div>
+                                            <div class="listTable_th listTable_text">單項總額</div>
+                                            <div class="listTable_th listTable_text listTable_delete">刪除</div>
+                                        </div>
+                                    </div>
+                                    <div class="listTable_tr" data-num="1">
+                                        <div class="listTable_trInner">
+                                            <div class="listTable_td listTable_numSort">1</div>
+                                            <div class="listTable_td listTable_text" data-desc="品名">
+                                                <div>螺絲</div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                <div><a href="#">SAC1234</a></div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="數量">
+                                                <div>
+                                                    <div class="content_components content_numCounter">
+                                                        <div class="numCounterInner">
+                                                            <div class="numCounter"><a href="#"><span class="material-icons">remove_circle</span></a></div>
+                                                            <div class="numCounter">
+                                                                <input type="num" value="10">
+                                                            </div>
+                                                            <div class="numCounter"><a href="#"><span class="material-icons">add_circle</span></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                <div><span class="integer">100</span><span class="decimalPoint">00</span></div>
+                                            </div>
+                                            <div class="listTable_td listTable_text listTable_delete" data-desc="刪除">
+                                                <div><a href="#"><span class="material-icons">delete_forever</span></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="listTable_tr" data-num="2">
+                                        <div class="listTable_trInner">
+                                            <div class="listTable_td listTable_numSort">2</div>
+                                            <div class="listTable_td listTable_text" data-desc="品名">
+                                                <div>銅管</div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                <div><a href="#">ABC56789</a></div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="數量">
+                                                <div>
+                                                    <div class="content_components content_numCounter">
+                                                        <div class="numCounterInner">
+                                                            <div class="numCounter"><a href="#"><span class="material-icons">remove_circle</span></a></div>
+                                                            <div class="numCounter">
+                                                                <input type="num" value="10">
+                                                            </div>
+                                                            <div class="numCounter"><a href="#"><span class="material-icons">add_circle</span></a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                <div><span class="integer">300</span><span class="decimalPoint">00</span></div>
+                                            </div>
+                                            <div class="listTable_td listTable_text listTable_delete" data-desc="刪除">
+                                                <div><a href="#"><span class="material-icons">delete_forever</span></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="listItem listFooter">
+                            <div class="listFooterInner">
+                                <div class="listFooterItem listFooter_title">訂單總額</div>
+                                <div class="listFooterItem listFooter_sum">NT $<span class="sumPrice"><span class="integer">1,040</span><span class="decimalPoint">00</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="content_components content_list">
+                        <div class="textListTable">
+                            <div class="field-num field-3">
+                                <div class="textList_tr">
+                                    <div class="textList_trInner">
+                                        <div class="textList_td textList_title">愛用者</div>
+                                        <div class="textList_td textList_text">廖家祥</div>
+                                    </div>
+                                </div>
+                                <div class="textList_tr">
+                                    <div class="textList_trInner">
+                                        <div class="textList_td textList_title">電話</div>
+                                        <div class="textList_td textList_text">02-2899-1234</div>
+                                    </div>
+                                </div>
+                                <div class="textList_tr">
+                                    <div class="textList_trInner">
+                                        <div class="textList_td textList_title">手機</div>
+                                        <div class="textList_td textList_text">0999-123-456</div>
+                                    </div>
+                                </div>
+                                <div class="textList_tr">
+                                    <div class="textList_trInner">
+                                        <div class="textList_td textList_title">地址</div>
+                                        <div class="textList_td textList_text">100台北市中正區北平東路30號</div>
+                                    </div>
+                                </div>
+                                <div class="textList_tr">
+                                    <div class="textList_trInner">
+                                        <div class="textList_td textList_title">E-Mail</div>
+                                        <div class="textList_td textList_text">test123@test.com</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field-num field-5">
+                                <div class="textList_tr">
+                                    <div class="textList_trInner">
+                                        <div class="textList_td textList_title">說明</div>
+                                        <div class="textList_td textList_text">光碟機無法正常退片，拆解後發現退片齒輪斷裂。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- record -->
+                    <div class="content_components content_record">
+                        <div class="recordTable">
+                            <div class="recordTable_thead">
+                                <div class="recordTable_theadInner">
+                                    <div class="recordTable_th recordTable_status"></div>
+                                    <div class="recordTable_th recordTable_text">訂單編號</div>
+                                    <div class="recordTable_th recordTable_text">訂單日期</div>
+                                    <div class="recordTable_th recordTable_text">訂單金額</div>
+                                    <div class="recordTable_th recordTable_text">訂單項目</div>
+                                    <div class="recordTable_th recordTable_text recordTable_rebuy"></div>
+                                </div>
+                            </div>
+                            <div class="recordTable_tr" data-num="1">
+                                <div class="recordTable_trInner">
+                                    <div class="recordTable_td recordTable_status">
+                                        <div><span class="inProcess">處理中</span></div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單編號">
+                                        <div>#ABC123456789</div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單日期">
+                                        <div class="content_components content_date">
+                                            <div>
+                                                <span class="date date_y">2020</span>
+                                                <span class="date date_m">12</span>
+                                                <span class="date date_d">11</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單金額">
+                                        <div><span class="integer">300</span><span class="decimalPoint">00</span></div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單項目">
+                                        <div>
+                                            <ul>
+                                                <li>冷氣機</li>
+                                                <li>洗衣機</li>
+                                                <li>影音系列</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text recordTable_rebuy">
+                                        <div>
+                                            <a href="#">再次訂購</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recordTable_detail">
+                                    <button data-toggle="collapse" data-target="#rd1">詳細資訊</button>
+                                    <div id="rd1" class="collapse recordTable_detail_content">
+                                        <div class="recordTable_detail_contentInner">
+                                            <div class="content_components content_list">
+                                                <div class="listItem listContent">
+                                                    <div class="listContentItem">
+                                                        <div class="listContent_mainTitle">冷氣機</div>
+                                                        <div class="listTable">
+                                                            <div class="listTable_thead">
+                                                                <div class="listTable_theadInner">
+                                                                    <div class="listTable_th listTable_numSort"></div>
+                                                                    <div class="listTable_th listTable_text">品名</div>
+                                                                    <div class="listTable_th listTable_text">零件編號</div>
+                                                                    <div class="listTable_th listTable_text">訂購數量</div>
+                                                                    <div class="listTable_th listTable_text">原訂購數量</div>
+                                                                    <div class="listTable_th listTable_text">單項總額</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="listTable_tr" data-num="1">
+                                                                <div class="listTable_trInner">
+                                                                    <div class="listTable_td listTable_numSort">1</div>
+                                                                    <div class="listTable_td listTable_text" data-desc="品名">
+                                                                        <div>螺絲</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                                        <div><a href="#">SAC1234</a></div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="訂購數量">
+                                                                        <div>10</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="原訂購數量">
+                                                                        <div>30</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                                        <div><span class="integer">100</span><span class="decimalPoint">00</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="listTable_tr" data-num="2">
+                                                                <div class="listTable_trInner">
+                                                                    <div class="listTable_td listTable_numSort">2</div>
+                                                                    <div class="listTable_td listTable_text" data-desc="品名">
+                                                                        <div>銅管</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                                        <div><a href="#">SAC1234</a></div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="訂購數量">
+                                                                        <div>10</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="原訂購數量">
+                                                                        <div>30</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                                        <div><span class="integer">300</span><span class="decimalPoint">00</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recordTable_tr" data-num="2">
+                                <div class="recordTable_trInner">
+                                    <div class="recordTable_td recordTable_status">
+                                        <div><span class="warning">問題件</span></div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單編號">
+                                        <div>#XYZ987654321</div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單日期">
+                                        <div class="content_components content_date">
+                                            <div>
+                                                <span class="date date_y">2020</span>
+                                                <span class="date date_m">12</span>
+                                                <span class="date date_d">17</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單金額">
+                                        <div><span class="integer">300</span><span class="decimalPoint">00</span></div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text" data-desc="訂單項目">
+                                        <div>
+                                            <ul>
+                                                <li>冷氣機</li>
+                                                <li>洗衣機</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="recordTable_td recordTable_text recordTable_rebuy">
+                                        <div>
+                                            <a href="#">再次訂購</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recordTable_detail">
+                                    <button data-toggle="collapse" data-target="#rd2">詳細資訊</button>
+                                    <div id="rd2" class="collapse recordTable_detail_content">
+                                        <div class="recordTable_detail_contentInner">
+                                            <div class="content_components content_list">
+                                                <div class="listItem listContent">
+                                                    <div class="listContentItem">
+                                                        <div class="listContent_mainTitle">冷氣機</div>
+                                                        <div class="listTable">
+                                                            <div class="listTable_thead">
+                                                                <div class="listTable_theadInner">
+                                                                    <div class="listTable_th listTable_numSort"></div>
+                                                                    <div class="listTable_th listTable_text">品名</div>
+                                                                    <div class="listTable_th listTable_text">零件編號</div>
+                                                                    <div class="listTable_th listTable_text">訂購數量</div>
+                                                                    <div class="listTable_th listTable_text">原訂購數量</div>
+                                                                    <div class="listTable_th listTable_text">單項總額</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="listTable_tr" data-num="1">
+                                                                <div class="listTable_trInner">
+                                                                    <div class="listTable_td listTable_numSort">1</div>
+                                                                    <div class="listTable_td listTable_text" data-desc="品名">
+                                                                        <div>螺絲</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                                        <div><a href="#">SAC1234</a></div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="訂購數量">
+                                                                        <div>10</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="原訂購數量">
+                                                                        <div>30</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                                        <div><span class="integer">100</span><span class="decimalPoint">00</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="listTable_tr" data-num="2">
+                                                                <div class="listTable_trInner">
+                                                                    <div class="listTable_td listTable_numSort">2</div>
+                                                                    <div class="listTable_td listTable_text" data-desc="品名">
+                                                                        <div>銅管</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="零件編號">
+                                                                        <div><a href="#">SAC1234</a></div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="訂購數量">
+                                                                        <div>10</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="原訂購數量">
+                                                                        <div>30</div>
+                                                                    </div>
+                                                                    <div class="listTable_td listTable_text" data-desc="單項總額">
+                                                                        <div><span class="integer">300</span><span class="decimalPoint">00</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- blockForm -->
+                    <div class="content_components content_blockForm">
+                        <form action="">
+                            <div class="blockForm">
+                                <div class="blockForm_note">
+                                    <div class="blockForm_noteInner">
+                                        <div class="blockForm_noteItem noteItem_text">※未在商品選單標示的商品,請找三洋就近的服務站自行送修 / 維修服務受理時間為 週一至週五 09:00~17:00</div>
+                                        <div class="blockForm_noteItem noteItem_required">*為必填欄位</div>
+                                    </div>
+                                </div>
+                                <div class="blockForm_tr">
+                                    <div class="blockForm_trInner">
+                                        <div class="blockForm_td blockForm_title" data-num="1">基本資料</div>
+                                        <div class="blockForm_td blockForm_field">
+                                            <div class="field-num field-3">
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>聯絡電話</label>
+                                                    </div>
+                                                    <div class="formField formField_tel">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="">
+                                                            </div>
+                                                            <div class="formFieldFloat">－</div>
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>聯絡手機</label>
+                                                    </div>
+                                                    <div class="formField formField_mobile">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="">
+                                                            </div>
+                                                            <div class="formFieldFloat">－</div>
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="">
+                                                            </div>
+                                                            <div class="formFieldFloat">－</div>
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow requiredRow noteRow">
+                                                    <div class="formTitle" data-desc="(最多可輸入五個字元)">
+                                                        <label>經銷商名稱</label>
+                                                    </div>
+                                                    <div class="formField">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="請輸入經銷商名稱" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow errorRow">
+                                                    <div class="formTitle">
+                                                        <label>愛用者姓名</label>
+                                                    </div>
+                                                    <div class="formField" data-desc="格式錯誤">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="請輸入姓名">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow requiredRow errorRow">
+                                                    <div class="formTitle">
+                                                        <label>產品</label>
+                                                    </div>
+                                                    <div class="formField" data-desc="未填寫">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <select>
+                                                                    <option disabled selected hidden>請選擇</option>
+                                                                    <option>冷氣機(室內)</option>
+                                                                    <option>冷氣機(室外)</option>
+                                                                    <option>冷氣機(窗型)</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>購買日期</label>
+                                                    </div>
+                                                    <div class="formField">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <select>
+                                                                    <option disabled selected hidden>年</option>
+                                                                    <option>2020</option>
+                                                                    <option>2019</option>
+                                                                    <option>2018</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <select>
+                                                                    <option disabled selected hidden>月</option>
+                                                                    <option>01</option>
+                                                                    <option>02</option>
+                                                                    <option>03</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <select>
+                                                                    <option disabled selected hidden>日</option>
+                                                                    <option>01</option>
+                                                                    <option>02</option>
+                                                                    <option>03</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>購買管道</label>
+                                                    </div>
+                                                    <div class="formField formField_radio">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="radio" id="rd01" name="formRadio">
+                                                                <label for="rd01">電商平台</label>
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <input type="radio" id="rd02" name="formRadio">
+                                                                <label for="rd02">實體店面</label>
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <input type="radio" id="rd03" name="formRadio">
+                                                                <label for="rd03">三洋總公司</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="field-num field-5">
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>聯絡地址</label>
+                                                    </div>
+                                                    <div class="formField formField_address">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="郵遞區號">
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <select>
+                                                                    <option disabled selected hidden>縣市</option>
+                                                                    <option>台北市</option>
+                                                                    <option>新北市</option>
+                                                                    <option>桃園市</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <select>
+                                                                    <option disabled selected hidden>區域</option>
+                                                                    <option>中正區</option>
+                                                                    <option>信義區</option>
+                                                                    <option>中山區</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="地址">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>E-MAIL</label>
+                                                    </div>
+                                                    <div class="formField">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" placeholder="請輸入E-MAIL" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="formRow">
+                                                    <div class="formTitle">
+                                                        <label>經銷商帳號</label>
+                                                    </div>
+                                                    <div class="formField">
+                                                        <div class="formFieldInner">
+                                                            <div class="formFieldFloat">
+                                                                <input type="text" value="ABC12345-01" disabled class="disabledValue">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blockForm_agreeCheckbox">
+                                    <div class="agreeCheckboxInner">
+                                        <div class="agreeCheckboxItem agreeCheck_input">
+                                            <input type="checkbox" id="agreeCheckbox">
+                                        </div>
+                                        <div class="agreeCheckboxItem agreeCheck_label">
+                                            <label for="agreeCheckbox">不同意提供作為接受銷售相關活動訊息通知
+                                                <未作勾選者則視為同意>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="blockForm_btn">
+                                    <ul>
+                                        <li>
+                                            <button class="cancelBtn">全部清除</button>
+                                        </li>
+                                        <li>
+                                            <button class="sendBtn">確認登錄</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <hr>
+                    <!-- successForm -->
+                    <div class="content_components content_successForm">
+                        <div class="register_successIcon"><span class="material-icons">check_circle</span></div>
+                        <div class="register_successTitle">
+                            <h1>恭喜您已完成報修單登錄！</h1>
+                        </div>
+                        <div class="register_successTitle">
+                            <p>我們將派專員與您聯繫。
+                                <br>如遇星期例假日或國定假日時，
+                                <br>則須待休假日之後方可提供轉件服務，謹此致歉！
+                                <br>
+                                <br>請牢記下列資料以便於查詢</p>
+                        </div>
+                        <div class="register_successDetail">
+                            <ul>
+                                <li>
+                                    <div class="successDetail_text successDetailTitle">報修產品</div>
+                                    <div class="successDetail_text successDetailContent">洗衣機 > DD直流變頻超音波</div>
+                                </li>
+                                <li>
+                                    <div class="successDetail_text successDetailTitle">愛用者</div>
+                                    <div class="successDetail_text successDetailContent">廖家祥</div>
+                                </li>
+                                <li>
+                                    <div class="successDetail_text successDetailTitle">報修年月</div>
+                                    <div class="successDetail_text successDetailContent">202012</div>
+                                </li>
+                                <li>
+                                    <div class="successDetail_text successDetailTitle">報修單號</div>
+                                    <div class="successDetail_text successDetailContent">202012</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="blockForm_btn">
+                            <ul>
+                                <li>
+                                    <button class="cancelBtn">返回報修單登錄</button>
+                                </li>
+                                <li>
+                                    <button class="sendBtn">查詢報修單</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- searchForm -->
+                    <div class="content_components content_searchForm">
+                        <div class="searchFormTable">
+                            <div class="searchFormTable_title">報修單查詢</div>
+                            <div class="formTable">
+                                <form>
+                                    <div class="formRow">
+                                        <div class="formTitle">
+                                            <label>愛用者姓名</label>
+                                        </div>
+                                        <div class="formField">
+                                            <input type="text" placeholder="請輸入愛用者姓名">
+                                        </div>
+                                    </div>
+                                    <div class="formRow">
+                                        <div class="formTitle">
+                                            <label>報修年月</label>
+                                        </div>
+                                        <div class="formField">
+                                            <div class="formFieldInner">
+                                                <div class="formFieldFloat">
+                                                    <select>
+                                                        <option disabled selected hidden>年</option>
+                                                        <option>2020</option>
+                                                        <option>2019</option>
+                                                        <option>2018</option>
+                                                    </select>
+                                                </div>
+                                                <div class="formFieldFloat">
+                                                    <select>
+                                                        <option disabled selected hidden>月</option>
+                                                        <option>01</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="formRow noteRow">
+                                        <div class="formTitle" data-desc="(請輸入阿拉伯數字)">
+                                            <label>報修單號</label>
+                                        </div>
+                                        <div class="formField">
+                                            <div class="formFieldInner">
+                                                <div class="formFieldFloat">
+                                                    <input type="text" placeholder="請輸入報修單號">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blockForm_btn">
+                                        <ul>
+                                            <li>
+                                                <button class="sendBtn">查詢報修單</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="searchFormNote">
+                            <p>台灣三洋客服專線：(02)2521-0251 #6738</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- infoText -->
+                    <div class="content_components content_infoText">
+                        <div class="infoText_highlight">
+                            <ul>
+                                <li>
+                                    <div class="highlight_title">報修單狀態</div>
+                                    <div class="highlight_content">已結案</div>
+                                </li>
+                                <li>
+                                    <div class="highlight_title">報修單號</div>
+                                    <div class="highlight_content">29</div>
+                                </li>
+                                <li>
+                                    <div class="highlight_title">報修產品</div>
+                                    <div class="highlight_content">洗衣機</div>
+                                </li>
+                                <li><button class="highlight_print">列印保證書</button></li>
+                            </ul>
+                        </div>
+                        <div class="infoText_content">
+                            <p>我們已經收到您的報修單，資料會轉交給您所屬轄區服務站
+                                <br>所屬轄區服務站：<span class="locationInfo">松江服務站 (02)25236104</span>
+                                <br>如果您有任何問題，請與該站聯繫，以上，謝謝您。
+                                <br>如果遇星期例假日或國定假日時，則須待休假日之後方可提供轉件服務，謹此致歉。</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- tableList -->
+                    <div class="content_components content_tableList">
+                        <div class="tableList_table">
+                            <div class="tableList_tr">
+                                <div class="tableList_title">維修單資訊</div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">愛用者姓名</div>
+                                    <div class="tableList_tdItem tableList_tdText">廖家祥</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">報修年月</div>
+                                    <div class="tableList_tdItem tableList_tdText">202012</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">報修單流水號</div>
+                                    <div class="tableList_tdItem tableList_tdText">29</div>
+                                </div>
+                            </div>
+                            <div class="tableList_tr">
+                                <div class="tableList_title">商品資訊</div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">商品</div>
+                                    <div class="tableList_tdItem tableList_tdText">洗衣機</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">機型</div>
+                                    <div class="tableList_tdItem tableList_tdText">SWZ</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">機號</div>
+                                    <div class="tableList_tdItem tableList_tdText">&nbsp;</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">購買日期</div>
+                                    <div class="tableList_tdItem tableList_tdText">0</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">故障情形</div>
+                                    <div class="tableList_tdItem tableList_tdText">無法正常脫水</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">說明</div>
+                                    <div class="tableList_tdItem tableList_tdText">拆解測試後發現啟動馬達無法正常過電</div>
+                                </div>
+                            </div>
+                            <div class="tableList_tr">
+                                <div class="tableList_title">聯絡資訊</div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">電話／手機</div>
+                                    <div class="tableList_tdItem tableList_tdText">
+                                        <span class="tableList_tdTel">02 25210211</span>
+                                        <span class="tableList_tdMobile">&nbsp;</span>
+                                    </div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">地址</div>
+                                    <div class="tableList_tdItem tableList_tdText">台北市中山區松江路266號10樓</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">E-Mail</div>
+                                    <div class="tableList_tdItem tableList_tdText">test@test.com.tw</div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">輸入日期 / 時間</div>
+                                    <div class="tableList_tdItem tableList_tdText">
+                                        <span class="tableList_tdDate">2020/12/20</span>
+                                        <span class="tableList_tdTime">143642</span>
+                                    </div>
+                                </div>
+                                <div class="tableList_td">
+                                    <div class="tableList_tdItem tableList_tdTitle">備註</div>
+                                    <div class="tableList_tdItem tableList_tdText">[同意] 提供作為接受銷售相關活動訊息通知</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- pageBack -->
+                    <div class="content_components content_pageBack">
+                        <a href="#">返回報銷單查詢</a>
+                    </div>
+                    <hr>
+                    <!-- tabSelect -->
+                    <div class="content_components content_tabSelect">
+                        <div class="tabSelectHeader">
+                            <ul class="nav-tabs">
+                                <li class="item_conditioner active"><a data-toggle="tab" href="#pt01">冷氣機</a></li>
+                                <li class="item_freezon"><a data-toggle="tab" href="#pt02">電冰箱</a></li>
+                                <li class="item_wash_machine"><a data-toggle="tab" href="#pt03">洗衣機</a></li>
+                                <li class="item_display"><a data-toggle="tab" href="#pt04">影音系列</a></li>
+                                <li class="item_microwave"><a data-toggle="tab" href="#pt05">小家電</a></li>
+                                <li class="item_phone"><a data-toggle="tab" href="#pt06">數位系列</a></li>
+                                <li class="item_energy"><a data-toggle="tab" href="#pt07">能源科技</a></li>
+                            </ul>
+                        </div>
+                        <div class="tabSelectContent">
+                            <div class="tab-content">
+                                <div id="pt01" class="tab-pane fade active">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt01_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt01_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt01_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt01_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst01" name="tabSelectCheckbox">
+                                                <label for="tbst01">分離式</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst02" name="tabSelectCheckbox">
+                                                <label for="tbst02">分離室內機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst03" name="tabSelectCheckbox">
+                                                <label for="tbst03">分離室外機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst04" name="tabSelectCheckbox">
+                                                <label for="tbst04">冷氣室內機</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst05" name="tabSelectCheckbox">
+                                                <label for="tbst05">冷氣機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst06" name="tabSelectCheckbox">
+                                                <label for="tbst06">冷氣機銅管</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst07" name="tabSelectCheckbox">
+                                                <label for="tbst07">直式冷氣機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst08" name="tabSelectCheckbox">
+                                                <label for="tbst08">直膨冷氣機</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst09" name="tabSelectCheckbox">
+                                                <label for="tbst09">窗型冷氣機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst10" name="tabSelectCheckbox">
+                                                <label for="tbst10">冷氣機銅管</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst11" name="tabSelectCheckbox">
+                                                <label for="tbst11">直式冷氣機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst12" name="tabSelectCheckbox">
+                                                <label for="tbst12">直膨冷氣機</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst13" name="tabSelectCheckbox">
+                                                <label for="tbst13">隱藏式外機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst14" name="tabSelectCheckbox">
+                                                <label for="tbst14">隱藏送風機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst15" name="tabSelectCheckbox">
+                                                <label for="tbst15">變頻室內機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst16" name="tabSelectCheckbox">
+                                                <label for="tbst16">變頻室外機</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst17" name="tabSelectCheckbox">
+                                                <label for="tbst17">變隱室外機</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst18" name="tabSelectCheckbox">
+                                                <label for="tbst18">變隱送風機</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="pt02" class="tab-pane fade">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt02_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt02_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt02_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt02_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst19" name="tabSelectCheckbox">
+                                                <label for="tbst19">電冰箱條件1</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst20" name="tabSelectCheckbox">
+                                                <label for="tbst20">電冰箱條件2</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="tbst21" name="tabSelectCheckbox">
+                                                <label for="tbst21">電冰箱條件3</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="pt03" class="tab-pane fade">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt03_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt03_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt03_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt03_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst22" name="tabSelectCheckbox">
+                                                <label for="tbst22">洗衣機條件1</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="pt04" class="tab-pane fade">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt04_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt04_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt04_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt04_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst23" name="tabSelectCheckbox">
+                                                <label for="tbst23">影音系列條件1</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="pt05" class="tab-pane fade">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt05_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt05_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt05_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt05_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst24" name="tabSelectCheckbox">
+                                                <label for="tbst24">小家電條件1</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="pt06" class="tab-pane fade">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt06_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt06_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt06_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt06_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst25" name="tabSelectCheckbox">
+                                                <label for="tbst25">數位系列條件1</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="pt07" class="tab-pane fade">
+                                    <div class="tabSelectContent_all">
+                                        <ul>
+                                            <li>
+                                                <input type="radio" id="pt07_all" name="tabSelectCheckbox" class="tabSelect_all">
+                                                <label for="pt07_all">選擇全部</label>
+                                            </li>
+                                            <li>
+                                                <input type="radio" id="pt07_cancel" name="tabSelectCheckbox" class="tabSelect_cancel">
+                                                <label for="pt07_cancel">取消選取</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="tabSelectContent_Item">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="tbst26" name="tabSelectCheckbox">
+                                                <label for="tbst26">能源科技條件1</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- priceCounter -->
+                    <div class="content_components content_priceCounter">
+                        <div class="priceCounter_text">
+                            目前選擇項目 總額共 NT $<span class="sumPrice"><span class="integer">1,040</span><span class="decimalPoint">00</span></span>元
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- step -->
+                    <div class="content_components content_step">
+                        <ul>
+                            <li data-num="1" class="stepActive">調整訂單</li>
+                            <li data-num="2">確認訂單</li>
+                            <li data-num="3">完成訂單</li>
+                        </ul>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <!-- footer -->
+                <footer class="contentPart footer">
+                    <div class="footerInner">
+                        <div class="footerItem footer_contact">
+                            <ul>
+                                <li>聯絡電話：<a href="tel:0225210251" target="_blank">(02)2521-0251</a> #6738</li>
+                                <li>E-Mail：<a href="mailto:san6132@sanyo.com.tw" target="_blank">san6132@sanyo.com.tw</a></li>
+                            </ul>
+                        </div>
+                        <div class="footerItem footer_copyright">
+                            <p>版權聲明 Copyright © 2014 Taiwan Sanyo</p>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- right -->
+        </div>
+    </div>
+    <!-- popup -->
+    <div class="lity-hide content_components content_popupDialog" id="popup">
+        <div class="popup_title">
+            <div class="popup_titleIcon"><span class="material-icons">report_problem</span></div>
+            <div class="popup_titleText">登錄失敗！</div>
+        </div>
+        <div class="popup_info">
+            <p>很抱歉，資料登錄失敗！<br>如有問題請電(02)2521-0251 #6738，謝謝！</p>
+        </div>
+        <div class="popup_msg">
+            <div class="popup_msgTitle">錯誤訊息</div>
+            <div class="popup_msgText">資料建置中</div>
+        </div>
+    </div>
+</body>
+<!-- jQuery_3.5.1  -->
+<script src="js/jquery-3.5.1.min.js"></script>
+<!-- jQuery-ui_1.12.1 -->
+<script src="js/jquery-ui.js"></script>
+<!-- Popper -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap_4.5.2 -->
+<script src="js/bootstrap.min.js"></script>
+<!-- malihu-custom-scrollbar-plugin_3.1.5 -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- bootstrap-select -->
+<script src="js/bootstrap-select.js"></script>
+<!-- datatable(bootstrap4/DataTables) -->
+<script src="js/jquery.dataTables.js"></script>
+<!-- datatable_rowReorder_1.2.7 -->
+<script src="js/dataTables.rowReorder.min.js"></script>
+<!-- datatable_responsive_2.2.6 -->
+<script src="js/dataTables.responsive.min.js"></script>
+<!-- lity_2.4.1 -->
+<script src="js/lity.js"></script>
+<!-- js -->
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+<!-- include_menu -->
+<script>
+includeMenu();
+</script>
+
+</html>
